@@ -1,14 +1,14 @@
-# Función para obtener y validar el nombre del producto
+# Función para obtener y validar el nombre del producto (sin números)
 def obtener_nombre_producto():
-    # Solicita al usuario el nombre del producto y elimina espacios en blanco
-    nombre = input("Ingresa el nombre del producto: ").strip()
-    
-    # Valida que el nombre no esté vacío
-    while not nombre:
-        print("El nombre no puede estar vacío.")
+    while True:
         nombre = input("Ingresa el nombre del producto: ").strip()
-    
-    return nombre  # Devuelve el nombre válido
+        
+        if not nombre:
+            print("El nombre no puede estar vacío.")
+        elif any(char.isdigit() for char in nombre):
+            print("El nombre no puede contener números.")
+        else:
+            return nombre  # Devuelve el nombre válido
 
 # Función para obtener y validar el precio unitario
 def obtener_precio_unitario():
